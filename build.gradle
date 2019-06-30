@@ -1,3 +1,8 @@
 group 'site.littlehands.ncmapi'
 version '1.0'
 
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
