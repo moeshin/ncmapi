@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * Parse share link
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class ParseShareLink {
+public class ParseShareInfo {
 
     /**
      * Source type
@@ -32,7 +32,7 @@ public class ParseShareLink {
      * @param text Share text
      * @return Instance
      */
-    public static ParseShareLink parse(String text) {
+    public static ParseShareInfo parse(String text) {
 
         // https://www.debuggex.com/r/LWpqj_bRDIGGTYVa
         Pattern pattern = Pattern.compile("//music.163.com/([a-z]+)(?:/(?:\\?id=)?|\\?id=)(\\d+)(?:[/&]|$)");
@@ -46,7 +46,7 @@ public class ParseShareLink {
         int type = switchType(matcher.group(1));
         long id = Long.valueOf(matcher.group(2));
 
-        return new ParseShareLink(type, id);
+        return new ParseShareInfo(type, id);
     }
 
     /**
@@ -66,7 +66,7 @@ public class ParseShareLink {
         }
     }
 
-    private ParseShareLink(int type, long id) {
+    private ParseShareInfo(int type, long id) {
         this.type = type;
         this.id = id;
     }
