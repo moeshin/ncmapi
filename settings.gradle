@@ -1,4 +1,3 @@
 rootProject.name = 'NCMAPI'
-include 'sample'
 include 'ncmapi'
 
