@@ -15,6 +15,10 @@ dependencies {
     compile group: 'commons-codec', name: 'commons-codec', version: '1.12'
 }
 
+build {
+    test.enabled = false
+}
+
 task createPom {
     pom {}.writeTo("${libsDir}/${project.name}-${version}.pom")
 }
