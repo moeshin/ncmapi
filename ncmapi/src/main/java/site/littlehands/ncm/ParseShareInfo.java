@@ -78,4 +78,9 @@ public class ParseShareInfo {
     public long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "{type:" + type + ",id:" + id + "}";
+    }
 }
