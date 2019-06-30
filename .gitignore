@@ -6,4 +6,5 @@ build/
 out/
 
 # IntelliJ
-.idea/workspace.xml
+.idea/*
+!.idea/dictionaries/
