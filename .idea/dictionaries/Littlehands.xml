@@ -2,7 +2,9 @@
   <dictionary name="Littlehands">
     <words>
       <w>gitignore</w>
+      <w>littlehands</w>
       <w>ncmapi</w>
+      <w>userid</w>
     </words>
   </dictionary>
 </component>
