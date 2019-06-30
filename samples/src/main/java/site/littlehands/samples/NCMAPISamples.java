@@ -1,7 +1,9 @@
-package site.littlehands.ncmapi;
+package site.littlehands.samples;
+
+import site.littlehands.ncmapi.NCMAPI;
 
 @SuppressWarnings("WeakerAccess")
-public class Samples {
+public class NCMAPISamples {
 
     public static void main(String[] args) throws Exception {
         search();
