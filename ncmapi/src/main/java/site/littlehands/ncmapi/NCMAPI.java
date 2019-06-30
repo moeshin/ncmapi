@@ -205,12 +205,12 @@ public class NCMAPI {
     /**
      * Song url
      *
-     * @param ids Song id
      * @param br Bit rate
+     * @param ids Song id
      * @return JSON string
      * @throws Exception Request error
      */
-    public static String url(long[] ids, int br) throws Exception {
+    public static String url(int br, long ...ids) throws Exception {
         String url = "http://music.163.com/weapi/song/enhance/player/url?csrf_token=";
         String params = new JSONObject()
                 .put("ids", Arrays.toString(ids))
@@ -220,12 +220,8 @@ public class NCMAPI {
         return request(url, params);
     }
 
-    public static String url(int br, long ...ids) throws Exception {
-        return url(ids, br);
-    }
-
     public static String url(long ...ids) throws Exception {
-        return url(ids, 999000);
+        return url(999000, ids);
     }
 
     /**
@@ -234,6 +230,7 @@ public class NCMAPI {
      * @param id Playlist id
      * @param n Number of tracks
      * @return JSON string
+     * @throws Exception Request error
      */
     public static String playlist(long id, int n) throws Exception {
         String url = "http://music.163.com/weapi/v3/playlist/detail?csrf_token=";
