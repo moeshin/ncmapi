@@ -1,6 +1,6 @@
 package site.littlehands.samples;
 
-import site.littlehands.ncm.ParseShareInfo;
+import site.littlehands.ncmapi.ParseShareInfo;
 
 public class ParseShareInfoSamples {
 

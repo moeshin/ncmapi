@@ -1,4 +1,4 @@
-package site.littlehands.ncm;
+package site.littlehands.ncmapi;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
