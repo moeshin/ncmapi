@@ -6,20 +6,23 @@ import org.json.JSONObject;
 
 import java.util.StringJoiner;
 
+/**
+ * Parse artists
+ */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class NCMAPIUtils {
+public class ParseArtists {
 
     public static final String ARTISTS_DEFAULT_DELIMITER = ",";
 
     /**
-     * Artists to string
+     * Parse to string
      *
      * @param artists Artists
      * @param delimiter Delimiter
      * @return String type of artists
      * @throws JSONException Parse json error
      */
-    public static String artistsToString(JSONArray artists, String delimiter) throws JSONException {
+    public static String toString(JSONArray artists, String delimiter) throws JSONException {
         StringJoiner joiner = new StringJoiner(delimiter);
         int length = artists.length();
         for (int i = 0; i < length; i++) {
@@ -28,15 +31,15 @@ public class NCMAPIUtils {
         return joiner.toString();
     }
 
-    public static String artistsToString(JSONArray artists) throws JSONException {
-        return artistsToString(artists, ARTISTS_DEFAULT_DELIMITER);
+    public static String toString(JSONArray artists) throws JSONException {
+        return toString(artists, ARTISTS_DEFAULT_DELIMITER);
     }
 
-    public static String artistsToString(JSONObject song, String name, String delimiter) throws JSONException {
-        return artistsToString(song.getJSONArray(name), delimiter);
+    public static String toString(JSONObject song, String name, String delimiter) throws JSONException {
+        return toString(song.getJSONArray(name), delimiter);
     }
 
-    public static String artistsToString(JSONObject song, String name) throws JSONException {
-        return artistsToString(song.getJSONArray(name), ARTISTS_DEFAULT_DELIMITER);
+    public static String toString(JSONObject song, String name) throws JSONException {
+        return toString(song.getJSONArray(name), ARTISTS_DEFAULT_DELIMITER);
     }
 }
