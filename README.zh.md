@@ -1,8 +1,11 @@
 语言：[English](README.md) | [中文](README.zh.md)
 
-# NCMAPI
+# ncmapi
 
 网易云音乐 API。
+
+[![Bintray](https://img.shields.io/bintray/v/moeshin/maven/ncmapi.svg?style=flat-square)](https://bintray.com/moeshin/maven/ncmapi)
+[![GitHub](https://img.shields.io/github/license/moeshin/ncmapi.svg?style=flat-square)](https://github.com/moeshin/ncmapi/blob/master/LICENSE)
 
 ## 感谢
 

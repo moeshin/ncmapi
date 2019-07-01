@@ -1,8 +1,11 @@
 Language: [English](README.md) | [中文](README.zh.md)
 
-# NCMAPI for java.
+# ncmapi
 
-Netease cloud music API.
+Netease Cloud Music API.
+
+[![Bintray](https://img.shields.io/bintray/v/moeshin/maven/ncmapi.svg?style=flat-square)](https://bintray.com/moeshin/maven/ncmapi)
+[![GitHub](https://img.shields.io/github/license/moeshin/ncmapi.svg?style=flat-square)](https://github.com/moeshin/ncmapi/blob/master/LICENSE)
 
 ## Thanks
 
