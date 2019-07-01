@@ -12,3 +12,19 @@ dependencies {
     compile group: 'org.json', name: 'json', version: '20180813'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.12'
 }
+
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = System.getenv("BINTRAY_USER")
+    repoName = rootProject.name
+    groupId = group
+    artifactId = name
+    publishVersion = version
+    licences = ['MIT']
+    desc = 'Netease Cloud Music API'
+    website = 'https://github.com/moeshin/NCMAPI'
+    bintrayUser = System.getenv("BINTRAY_USER")
+    bintrayKey = System.getenv("BINTRAY_KEY")
+    dryRun = false
+}
