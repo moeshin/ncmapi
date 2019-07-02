@@ -15,17 +15,80 @@ dependencies {
 
 apply plugin: 'com.novoda.bintray-release'
 
+ext {
+    USER_NAME = System.getenv("BINTRAY_USER")
+    USER_EMAIL = '764686875@qq.com'
+
+    PACKAGING = 'jar'
+
+    NAME = name
+    DESCRIPTION = 'Netease Cloud Music API'
+    SITE_URL = 'https://github.com/moeshin/ncmapi'
+    LICENSE = 'MIT'
+
+    IS_UPLOADING = project.getGradle().startParameter.taskNames.any{it.contains('bintrayUpload')}
+}
+
 // Bintray upload config
 publish {
-    // Gradle task command line:
-    // clean build bintrayUpload -PdryRun=false
-    userOrg = System.getenv("BINTRAY_USER")
+    /*
+     * Gradle task command line:
+     * clean build bintrayUpload -PdryRun=false
+     */
+    userOrg = USER_NAME
+    //noinspection GroovyAccessibility
     groupId = group
     artifactId = name
+    //noinspection GroovyAccessibility
     publishVersion = version
-    licences = ['MIT']
-    desc = 'Netease Cloud Music API'
-    website = 'https://github.com/moeshin/NCMAPI'
-    bintrayUser = System.getenv("BINTRAY_USER")
+    //noinspection GroovyAccessibility
+    licences = [LICENSE]
+    //noinspection GroovyAccessibility
+    desc = DESCRIPTION
+    website = SITE_URL
+    bintrayUser = USER_NAME
     bintrayKey = System.getenv("BINTRAY_KEY")
+}
+
+if (IS_UPLOADING) {
+    // Override pom
+    gradle.taskGraph.whenReady { taskGraph ->
+        taskGraph.getAllTasks().find {
+            it.path == ":$NAME:generatePomFileForMavenPublication"
+        }.doLast {
+            apply plugin: 'maven'
+            file("build/publications/maven/pom-default.xml").delete()
+            println 'Overriding pom-file to make sure we can sync to maven central!'
+            pom {
+                //noinspection GroovyAssignabilityCheck
+                project {
+                    //noinspection GroovyAssignabilityCheck
+                    name NAME
+                    url SITE_URL
+                    description DESCRIPTION
+
+                    licenses {
+                        license {
+                            //noinspection GroovyAssignabilityCheck
+                            name LICENSE
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            //noinspection GroovyAssignabilityCheck
+                            name USER_NAME
+                            email USER_EMAIL
+                        }
+                    }
+
+                    scm {
+                        url SITE_URL
+                        connection "${SITE_URL}.git"
+                        developerConnection "${SITE_URL}.git"
+                    }
+                }
+            }.writeTo("build/publications/maven/pom-default.xml")
+        }
+    }
 }
