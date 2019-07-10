@@ -1,0 +1,36 @@
+// Require https://github.com/moeshin/git-changelog
+static String arrayToString(Object ...strings) {
+    String string = ""
+    for (Object str : strings) {
+        string += "$str "
+    }
+    return string
+}
+
+void gitChangelog(String ...mArgs) {
+    exec {
+        if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
+            commandLine 'cmd', '/C'
+        } else {
+            commandLine 'bash', '-c'
+        }
+
+        args "git-changelog ${arrayToString(mArgs)}"
+//        println(arrayToString(commandLine.toArray()))
+    }
+}
+
+task changelog(
+        group: 'publishing',
+        description: 'Generate changelog'
+) {
+    doLast {
+        gitChangelog(
+                "-r=$version",
+                "--commit-path \\\"$projectDir\\\"",
+                "--log=../CHANGELOG.md ",
+                "--notes=../RELEASE-NOTES.md ",
+                "--header=$rootDir/templates/header.md"
+        )
+    }
+}

@@ -92,3 +92,5 @@ if (IS_UPLOADING) {
         }
     }
 }
+
+apply from: "git-changelog.gradle"
