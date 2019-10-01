@@ -158,7 +158,7 @@ public class NCMAPI {
      * @throws Exception Request error
      */
     public static String artist(long id) throws Exception {
-        String url = "http://music.163.com/weapi/v1/artist/" + id + "?csrf_token=";
+        String url = "https://music.163.com/weapi/v1/artist/" + id + "?csrf_token=";
         String params = new JSONObject()
                 .put("csrf_token", "")
                 .toString();
@@ -173,7 +173,7 @@ public class NCMAPI {
      * @throws Exception Request error
      */
     public static String album(long id) throws Exception {
-        String url = "http://music.163.com/weapi/v1/album/" + id + "?csrf_token=";
+        String url = "https://music.163.com/weapi/v1/album/" + id + "?csrf_token=";
         String params = new JSONObject()
                 .put("csrf_token", "")
                 .toString();
@@ -194,7 +194,7 @@ public class NCMAPI {
             c[i] = "{id:" + ids[i] + "}";
         }
 
-        String url = "http://music.163.com/weapi/v3/song/detail?csrf_token=";
+        String url = "https://music.163.com/weapi/v3/song/detail?csrf_token=";
         String params = new JSONObject()
                 .put("c", Arrays.toString(c))
                 .put("csrf_token", "")
@@ -211,7 +211,7 @@ public class NCMAPI {
      * @throws Exception Request error
      */
     public static String url(int br, long ...ids) throws Exception {
-        String url = "http://music.163.com/weapi/song/enhance/player/url?csrf_token=";
+        String url = "https://music.163.com/weapi/song/enhance/player/url?csrf_token=";
         String params = new JSONObject()
                 .put("ids", Arrays.toString(ids))
                 .put("br", br)
@@ -233,7 +233,7 @@ public class NCMAPI {
      * @throws Exception Request error
      */
     public static String playlist(long id, int n) throws Exception {
-        String url = "http://music.163.com/weapi/v3/playlist/detail?csrf_token=";
+        String url = "https://music.163.com/weapi/v3/playlist/detail?csrf_token=";
         String params = new JSONObject()
                 .put("id", id)
                 .put("n", n)
@@ -254,7 +254,7 @@ public class NCMAPI {
      * @throws Exception Request error
      */
     public static String lyric(long id) throws Exception {
-        String url = "http://music.163.com/weapi/song/lyric?csrf_token=";
+        String url = "https://music.163.com/weapi/song/lyric?csrf_token=";
         String params = new JSONObject()
                 .put("id", id)
                 .put("os", "pc")
@@ -273,7 +273,7 @@ public class NCMAPI {
      * @throws Exception Request errors
      */
     public static String mv(long id) throws Exception {
-        String url = "http://music.163.com/weapi/mv/detail?csrf_token=";
+        String url = "https://music.163.com/weapi/mv/detail?csrf_token=";
         String params = new JSONObject()
                 .put("id", id)
                 .put("csrf_token", "")
@@ -290,7 +290,7 @@ public class NCMAPI {
      * @throws Exception Request error
      */
     public static String radio(long id, int limit) throws Exception {
-        String url = "http://music.163.com/weapi/dj/program/byradio?csrf_token=";
+        String url = "https://music.163.com/weapi/dj/program/byradio?csrf_token=";
         String params = new JSONObject()
                 .put("radioId", id)
                 .put("csrf_token", "")
