@@ -1,9 +1,7 @@
-# 1.0.0 (2019-07-12)
+## [1.0.1](https://github.com/moeshin/ncmapi/compare/v1.0.0...v1.0.1) (2019-10-01)
 
 
 ### Features
 
-* archive request Netease Cloud Music API ([4a13768](https://github.com/moeshin/ncmapi/commit/4a13768))
-* **utils:** parse artists to string ([1cc2038](https://github.com/moeshin/ncmapi/commit/1cc2038))
-* **utils:** parse share info ([7629751](https://github.com/moeshin/ncmapi/commit/7629751))
+* use HTTPS api ([1d4fff7](https://github.com/moeshin/ncmapi/commit/1d4fff7))
 
