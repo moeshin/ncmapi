@@ -28,9 +28,10 @@ task changelog(
         gitChangelog(
                 "-r=$version",
                 "--commit-path \\\"$projectDir\\\"",
-                "--log=../CHANGELOG.md ",
-                "--notes=../RELEASE-NOTES.md ",
-                "--header=$rootDir/templates/header.md"
+                "--log=../CHANGELOG.md",
+                "--notes=../RELEASE-NOTES.md",
+                "--header=./git-changelog-header.md"
         )
+        // git-changelog --log=../CHANGELOG.md --notes=../RELEASE-NOTES.md --commit-path . --header=./git-changelog-header.md
     }
 }
